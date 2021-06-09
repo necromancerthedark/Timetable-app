@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:page_transition/page_transition.dart';
+import 'Discussion.dart';
+import 'changtheme.dart';
 
 class Upperbar extends StatefulWidget with PreferredSizeWidget {
   @override
@@ -14,11 +17,27 @@ class _UpperbarState extends State<Upperbar> {
   Widget build(BuildContext context) {
     return Container(
       child: AppBar(
+        actions: [
+          changeTheme(),
+        ],
+        leading: GestureDetector(
+          onTap: () {
+            Navigator.push(
+                context,
+                PageTransition(
+                    type: PageTransitionType.scale,
+                    alignment: Alignment.topLeft,
+                    child: Discussion()));
+          },
+          child: Icon(Icons.developer_mode_rounded),
+        ),
         centerTitle: true,
         title: Text(
           "Class Links",
           style: GoogleFonts.caveat(
-            textStyle: TextStyle(color: Colors.black87),
+            // textStyle: themeprovider.isDarkMode
+            //     ? TextStyle(color: Colors.white)
+            //     : TextStyle(color: Colors.black87),
             fontSize: 40.0,
           ),
         ),
