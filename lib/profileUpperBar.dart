@@ -18,9 +18,6 @@ class _UpperbarState extends State<profileUpperBar> {
         title: Text(
           "About Me",
           style: GoogleFonts.caveat(
-            // textStyle: themeprovider.isDarkMode
-            //     ? TextStyle(color: Colors.white)
-            //     : TextStyle(color: Colors.black87),
             fontSize: 40.0,
           ),
         ),
